@@ -1,7 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
+        LinkedList linkedlist = new LinkedList();
 
-        linkedList.addToHead();
+        linkedlist.addToTail(5);
+        linkedlist.addToTail(6);
+        linkedlist.addToHead(7);
+        linkedlist.printList();
+
+
     }
 }
