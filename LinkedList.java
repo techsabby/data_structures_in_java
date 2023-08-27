@@ -11,6 +11,7 @@ public class LinkedList {
         Methods:
 
         void printList();
+        void printHeadTail();
         void addToHead(int number);
         void addToTail(int number);
         void deleteFromHead();
@@ -35,12 +36,21 @@ public class LinkedList {
         }
     }
 
+    public void printHeadTail() {
+        if (head != null) {
+            System.out.println("Head contains: " + head.number);
+            System.out.println("Tail contains: " + tail.number);
+        } else {
+            System.out.println("Empty List.");
+        }
+    }    
+
     public void addToHead(int number) {
         Node node = new Node();
         node.number = number; 
 
         if (head == null) {
-            head = node;
+            head = tail = node;
         } else {
             node.next = head; 
             head = node;
@@ -52,7 +62,7 @@ public class LinkedList {
         node.number = number;
 
         if (head == null) {
-            head = node;
+            head = tail = node;
         } else {
             Node tmp = head;
 
@@ -61,12 +71,17 @@ public class LinkedList {
             }
 
             tmp.next = node;
+            tail = node;
         }
     }
 
     public void deleteFromHead() {
         if (head == null) {
-            System.out.println("Head is empty, nothing to delete.");
+            System.out.println("Empty List.");
+        } else if (head.next == null) { 
+            head = tail = null;
+        } else if (head.next.next == null) {
+            head = tail;
         } else {
             Node temp = new Node();
 
@@ -77,6 +92,23 @@ public class LinkedList {
     }
 
     public void deleteFromTail() {
+        if (head == null) {
+            System.out.println("Empty List.");
+        } else if (head.next == null) {
+            head = tail = null;
+        } else if (head.next.next == null) {
+            tail = head;
+        } else {
+            Node temp = new Node();
 
+            temp = head;
+
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+            
+            tail = temp;
+            tail.next = null;
+        }
     }
 }
