@@ -2,7 +2,11 @@ public class Main {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
 
-        linkedList.addToHead(1);
-        linkedList.printList();
+        for (int i = 50; i >= 1; i--)
+            linkedList.addToTail(i);
+
+        System.out.println(linkedList.search(51));
+
+
     }
 }
