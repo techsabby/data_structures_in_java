@@ -1,10 +1,10 @@
-class Node {
+class SLLNode {
     int number;
     Node next;
 
-    Node() {}
+    SLLNode() {}
 
-    Node(int number) {
+    SLLNode(int number) {
         this.number = number;
     }
 }
@@ -12,27 +12,12 @@ class Node {
 public class LinkedList {
     int size; 
 
-    Node head, tail;
-
-    /* 
-        Methods: 
-
-        bool search(int);
-        void printList();
-        void printSize();
-        void lowHigh(int);
-        void highLow(int);
-        void addToHead(int);
-        void addToTail(int);
-        void deleteFromHead();
-        void deleteFromTail();
-    */
-
+    SLLNode head, tail;
     
     boolean search(int num) {
         
         int count = 0;
-        Node tmp = head;
+        SLLNode tmp = head;
 
         while (tmp.next != null) {
 
@@ -49,7 +34,7 @@ public class LinkedList {
     }
 
     void printList() {
-        Node tmp = head; 
+        SLLNode tmp = head; 
 
         if (head == null) {
             System.out.println("Empty List.");
@@ -106,7 +91,7 @@ public class LinkedList {
     }
 
     void addToHead(int number) {
-        Node node = new Node(number);
+        Node node = new SLLNode(number);
 
         if (head == null) {
             head = tail = node;
@@ -119,7 +104,7 @@ public class LinkedList {
     }
 
     void addToTail(int number) {
-        Node node = new Node(number);
+        Node node = new SLLNode(number);
 
         if (head == null) {
             head = tail = node;
@@ -145,7 +130,7 @@ public class LinkedList {
         } else if (head.next.next == null) {
             head = tail;
         } else {
-            Node temp = new Node();
+            Node temp = new SLLNode();
 
             temp.next = head.next.next;
             temp.number = head.next.number;
@@ -163,7 +148,7 @@ public class LinkedList {
         } else if (head.next.next == null) {
             tail = head;
         } else {
-            Node temp = new Node();
+            Node temp = new SLLNode();
 
             temp = head;
 
